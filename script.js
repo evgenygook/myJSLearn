@@ -1,3 +1,11 @@
-'use strict';
+ let question = prompt( "Ваш бюджет на месяц?"),
+     date = prompt("YYYY-MM-DD");
 
-console.log("Hello World1");
+     
+var appData = {
+    buget: question,
+    timeData: date,
+};     
+
+var expenses = {};
+var optionalExpenses ={};
