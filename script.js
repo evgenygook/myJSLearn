@@ -1,6 +1,7 @@
  let question = prompt( "Ваш бюджет на месяц?"),
      date = prompt("YYYY-MM-DD"),
-     count = 2;
+     count = 2,
+    
 
      
 var appData = {
@@ -16,9 +17,19 @@ var appData = {
 function Question(count){
     for(i=0; i< count; i++ ){
         var whatExpenses = prompt("Введите обязательную статью расходов в этом месяце");
-        var howMuch = prompt("Введите обязательную статью расходов в этом месяце");
-        return appData.expenses[i].whatExpenses=howMuch;
+        var howMuch = prompt("Во сколько обойдется?");
+        appData.expenses[whatExpenses]=howMuch;
+
     }
 }
 
-console.log(appData.expenses);
+
+
+function showMessage(){
+
+var oneDay = (appData.buget - appData.expenses[whatExpenses])/30;
+alert(oneDay);
+    }
+
+    Question(2);
+    showMessage();
