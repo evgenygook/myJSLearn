@@ -1,10 +1,10 @@
  let question = prompt( "Ваш бюджет на месяц?"),
      date = prompt("YYYY-MM-DD"),
-     count = 2,
+     count = 2;
     
 
      
-var appData = {
+let appData = {
     buget: question,
     timeData: date,
     savings: false,
@@ -18,18 +18,17 @@ function Question(count){
     for(i=0; i< count; i++ ){
         var whatExpenses = prompt("Введите обязательную статью расходов в этом месяце");
         var howMuch = prompt("Во сколько обойдется?");
-        appData.expenses[whatExpenses]=howMuch;
+        return appData.expenses.whatExpenses=howMuch;
 
     }
 }
 
 
-
 function showMessage(){
-
-var oneDay = (appData.buget - appData.expenses[whatExpenses])/30;
-alert(oneDay);
+    var oneDay = ((appData.buget - appData.expenses.whatExpenses)/30);
+    alert(oneDay);
     }
 
-    Question(2);
-    showMessage();
+    
+Question(2);
+showMessage();
