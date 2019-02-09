@@ -18,7 +18,22 @@ let appData = {
     for(i=0; i< count; i++ ){
         let whatExpenses = prompt("Введите обязательную статью расходов в этом месяце",'');
         let howMuch = prompt("Во сколько обойдется?",'');
-        appData.expenses[whatExpenses]=howMuch;
+ 
+
+        if(whatExpenses !== null && howMuch !== null && whatExpenses !== '' && howMuch !== ''){
+                appData.expenses[whatExpenses]=howMuch;
+        }else{
+                alert("Error");
+                }
         }
 
 
+appData.moneyPerDay = appData.bujet/ 30;
+
+        if(appData.moneyPerDay<1000){
+                alert("Меньше");
+        }else if(appData.moneyPerDay>1000 && appData.moneyPerDay<5000){
+                alert("В среднем");
+        }else{appData.moneyPerDay>5000
+                alert("Больше");
+        }
