@@ -1,13 +1,24 @@
- let question = prompt( "Ваш бюджет на месяц?"),
-     date = prompt("YYYY-MM-DD"),
-     count = 2;
-    
+let question, date;
+let count = 2;  
+function start(){
+        question = +prompt( "Ваш бюджет на месяц?",'');
+        date = prompt("YYYY-MM-DD",'');
 
-     
+        while( isNaN(question) || question =="" || question ==null){
+                question = +prompt( "Ваш бюджет на месяц?",'');    
+        }
+
+        while(isNaN(date) || date =="" || date ==null){
+                date = prompt("YYYY-MM-DD",'');   
+        }
+        
+}
+
+
 let appData = {
     buget: question,
     timeData: date,
-    savings: false,
+    savings: true,
 
     expenses:{},
     optionalExpenses:{},
@@ -15,6 +26,8 @@ let appData = {
 };     
 
 
+
+function choose(){
     for(i=0; i< count; i++ ){
         let whatExpenses = prompt("Введите обязательную статью расходов в этом месяце",'');
         let howMuch = prompt("Во сколько обойдется?",'');
@@ -27,40 +40,10 @@ let appData = {
                 i--;
         }       
     }  
+}
 
 
-        //while
-        /*var i = 0;
-        while (i < 2){
-                console.log("работает цикл")
-                let whatExpenses = prompt("Введите обязательную статью расходов в этом месяце",'');
-                let howMuch = prompt("Во сколько обойдется?",'');
-         
-                if(whatExpenses !== null && howMuch !== null && whatExpenses !== '' && howMuch !== ''){
-                        appData.expenses[whatExpenses]=howMuch;
-                        i++;
-                }else{
-                        alert("Error");
-                        i--;
-                        }
-                
-        } 
 
-        //do_while
-        i=0;
-        do {
-        console.log("работает цикл")
-                let whatExpenses = prompt("Введите обязательную статью расходов в этом месяце",'');
-                let howMuch = prompt("Во сколько обойдется?",'');
-         
-                if(whatExpenses !== null && howMuch !== null && whatExpenses !== '' && howMuch !== ''){
-                        appData.expenses[whatExpenses]=howMuch;
-                        i++;
-                }else{
-                        alert("Error");
-                        i--;
-                        }
-                } while(i< 2); */
 
 appData.moneyPerDay = appData.bujet/ 30;
 
@@ -72,5 +55,16 @@ appData.moneyPerDay = appData.bujet/ 30;
                 alert("Больше");
         }
 
+function savings(){
+        if(appData.savings == true){
+                let save = +prompt("Сумма ваших накоплений",'');
+                let precent= +prompt("Процентнтая ставка");
 
-        /* Бывает 3 цикла */
+                appData.monthIncome = save / 100/12*precent;
+                alert("Доход в месяц с депозита: "+appData.monthIncome)
+        }
+}        
+
+start();
+choose();
+savings();
