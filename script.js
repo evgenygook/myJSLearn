@@ -23,12 +23,13 @@ let appData = {
     expenses:{},
     optionalExpenses:{},
     income:[],
+    chooseOptExpenses:{}
 };     
 
 
 
 function choose(){
-    for(i=0; i< count; i++ ){
+    for(i=0; i<count; i++ ){
         let whatExpenses = prompt("Введите обязательную статью расходов в этом месяце",'');
         let howMuch = prompt("Во сколько обойдется?",'');
  
@@ -44,7 +45,7 @@ function choose(){
 
 
 
-
+function comparison(){
 appData.moneyPerDay = appData.bujet/ 30;
 
         if(appData.moneyPerDay<1000){
@@ -54,7 +55,7 @@ appData.moneyPerDay = appData.bujet/ 30;
         }else{appData.moneyPerDay>5000
                 alert("Больше");
         }
-
+}
 function savings(){
         if(appData.savings == true){
                 let save = +prompt("Сумма ваших накоплений",'');
@@ -65,6 +66,19 @@ function savings(){
         }
 }        
 
+function chooseOptExpenses(){
+
+        let c=0;
+        while (c<2){
+                let choseOptEx = prompt("Статья необязательных расходов?");
+                appData.chooseOptExpenses[c+1]=choseOptEx;
+                c++;
+        }
+}
+
 start();
 choose();
+comparison();
 savings();
+chooseOptExpenses();
+console.log(appData);
